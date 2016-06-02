@@ -1,0 +1,591 @@
+[2016-06-01 02:07:09,029][INFO ][cluster.metadata         ] [Taurus] [posts] update_mapping [blog]
+[2016-06-01 03:27:24,510][INFO ][node                     ] [Taurus] stopping ...
+[2016-06-01 03:27:24,610][INFO ][node                     ] [Taurus] stopped
+[2016-06-01 03:27:24,610][INFO ][node                     ] [Taurus] closing ...
+[2016-06-01 03:27:24,617][INFO ][node                     ] [Taurus] closed
+[2016-06-01 09:38:48,060][INFO ][node                     ] [Vamp] version[2.3.3], pid[23835], build[218bdf1/2016-05-17T15:40:04Z]
+[2016-06-01 09:38:48,060][INFO ][node                     ] [Vamp] initializing ...
+[2016-06-01 09:38:48,369][INFO ][plugins                  ] [Vamp] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2016-06-01 09:38:48,381][INFO ][env                      ] [Vamp] using [1] data paths, mounts [[/ (/dev/sda6)]], net usable_space [50.3gb], net total_space [83.2gb], spins? [possibly], types [ext4]
+[2016-06-01 09:38:48,381][INFO ][env                      ] [Vamp] heap size [989.8mb], compressed ordinary object pointers [true]
+[2016-06-01 09:38:49,386][INFO ][node                     ] [Vamp] initialized
+[2016-06-01 09:38:49,386][INFO ][node                     ] [Vamp] starting ...
+[2016-06-01 09:38:49,421][INFO ][transport                ] [Vamp] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2016-06-01 09:38:49,425][INFO ][discovery                ] [Vamp] elasticsearch/fSQ3owu7QOKeoprf3rtp5w
+[2016-06-01 09:38:52,461][INFO ][cluster.service          ] [Vamp] new_master {Vamp}{fSQ3owu7QOKeoprf3rtp5w}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2016-06-01 09:38:52,492][INFO ][http                     ] [Vamp] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2016-06-01 09:38:52,492][INFO ][node                     ] [Vamp] started
+[2016-06-01 09:38:52,814][INFO ][gateway                  ] [Vamp] recovered [1] indices into cluster_state
+[2016-06-01 09:38:53,536][INFO ][cluster.routing.allocation] [Vamp] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[posts][4], [posts][3], [posts][4], [posts][3], [posts][1]] ...]).
+[2016-06-01 16:09:01,672][DEBUG][action.search            ] [Vamp] [posts][3], node[fSQ3owu7QOKeoprf3rtp5w], [P], v[6], s[STARTED], a[id=U8DrqZizSK6gbs2634lkjg]: Failed to execute [org.elasticsearch.action.search.SearchRequest@be43f40]
+RemoteTransportException[[Vamp][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"<Request 'http://localhost:5000/entities/?q=having' [GET]>","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"<Request 'http://localhost:5000/entities/?q=having' [GET]>","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:855)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:655)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:620)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:371)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:75)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:376)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [posts] QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:246)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:250)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:320)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:223)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:218)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:838)
+	... 12 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:122)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:394)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:202)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:117)
+	... 20 more
+[2016-06-01 16:09:01,672][DEBUG][action.search            ] [Vamp] [posts][2], node[fSQ3owu7QOKeoprf3rtp5w], [P], v[6], s[STARTED], a[id=bJBrr_cwRSqPSZn4fMMGfg]: Failed to execute [org.elasticsearch.action.search.SearchRequest@be43f40] lastShard [true]
+RemoteTransportException[[Vamp][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"<Request 'http://localhost:5000/entities/?q=having' [GET]>","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"<Request 'http://localhost:5000/entities/?q=having' [GET]>","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:855)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:655)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:620)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:371)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:75)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:376)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [posts] QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:246)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:250)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:320)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:223)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:218)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:838)
+	... 12 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:122)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:394)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:202)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:117)
+	... 20 more
+[2016-06-01 16:09:01,672][DEBUG][action.search            ] [Vamp] [posts][0], node[fSQ3owu7QOKeoprf3rtp5w], [P], v[6], s[STARTED], a[id=GD3s4hxuScK444RxV1HufQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@be43f40] lastShard [true]
+RemoteTransportException[[Vamp][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"<Request 'http://localhost:5000/entities/?q=having' [GET]>","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"<Request 'http://localhost:5000/entities/?q=having' [GET]>","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:855)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:655)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:620)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:371)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:75)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:376)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [posts] QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:246)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:250)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:320)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:223)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:218)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:838)
+	... 12 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:122)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:394)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:202)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:117)
+	... 20 more
+[2016-06-01 16:09:01,672][DEBUG][action.search            ] [Vamp] [posts][4], node[fSQ3owu7QOKeoprf3rtp5w], [P], v[6], s[STARTED], a[id=r2qmuyHuSQ2QDeBDu0kMlg]: Failed to execute [org.elasticsearch.action.search.SearchRequest@be43f40] lastShard [true]
+RemoteTransportException[[Vamp][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"<Request 'http://localhost:5000/entities/?q=having' [GET]>","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"<Request 'http://localhost:5000/entities/?q=having' [GET]>","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:855)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:655)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:620)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:371)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:75)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:376)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [posts] QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:246)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:250)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:320)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:223)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:218)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:838)
+	... 12 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:122)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:394)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:202)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:117)
+	... 20 more
+[2016-06-01 16:09:01,672][DEBUG][action.search            ] [Vamp] [posts][1], node[fSQ3owu7QOKeoprf3rtp5w], [P], v[6], s[STARTED], a[id=EGRI-m6OSXCMo572bXfknQ]: Failed to execute [org.elasticsearch.action.search.SearchRequest@be43f40] lastShard [true]
+RemoteTransportException[[Vamp][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"<Request 'http://localhost:5000/entities/?q=having' [GET]>","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"<Request 'http://localhost:5000/entities/?q=having' [GET]>","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:855)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:655)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:620)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:371)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:75)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:376)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [posts] QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:246)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:250)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:320)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:223)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:218)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:838)
+	... 12 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:122)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:394)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:202)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:117)
+	... 20 more
+[2016-06-01 16:09:01,689][DEBUG][action.search            ] [Vamp] All shards failed for phase: [query]
+RemoteTransportException[[Vamp][127.0.0.1:9300][indices:data/read/search[phase/query]]]; nested: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"<Request 'http://localhost:5000/entities/?q=having' [GET]>","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+Caused by: SearchParseException[failed to parse search source [{"query":{"query_string":{"query":"<Request 'http://localhost:5000/entities/?q=having' [GET]>","lowercase_expanded_terms":true,"analyze_wildcard":false}}}]]; nested: QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:855)
+	at org.elasticsearch.search.SearchService.createContext(SearchService.java:655)
+	at org.elasticsearch.search.SearchService.createAndPutContext(SearchService.java:620)
+	at org.elasticsearch.search.SearchService.executeQueryPhase(SearchService.java:371)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:368)
+	at org.elasticsearch.search.action.SearchServiceTransportAction$SearchQueryTransportHandler.messageReceived(SearchServiceTransportAction.java:365)
+	at org.elasticsearch.transport.TransportRequestHandler.messageReceived(TransportRequestHandler.java:33)
+	at org.elasticsearch.transport.RequestHandlerRegistry.processMessageReceived(RequestHandlerRegistry.java:75)
+	at org.elasticsearch.transport.TransportService$4.doRun(TransportService.java:376)
+	at org.elasticsearch.common.util.concurrent.AbstractRunnable.run(AbstractRunnable.java:37)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: [posts] QueryParsingException[Failed to parse query [<Request 'http://localhost:5000/entities/?q=having' [GET]>]]; nested: ParseException[Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ]; nested: ParseException[Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    ];
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:246)
+	at org.elasticsearch.index.query.QueryParseContext.parseInnerQuery(QueryParseContext.java:250)
+	at org.elasticsearch.index.query.IndexQueryParserService.innerParse(IndexQueryParserService.java:320)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:223)
+	at org.elasticsearch.index.query.IndexQueryParserService.parse(IndexQueryParserService.java:218)
+	at org.elasticsearch.search.query.QueryParseElement.parse(QueryParseElement.java:33)
+	at org.elasticsearch.search.SearchService.parseSource(SearchService.java:838)
+	... 12 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Cannot parse '<Request 'http://localhost:5000/entities/?q=having' [GET]>': Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:122)
+	at org.apache.lucene.queryparser.classic.MapperQueryParser.parse(MapperQueryParser.java:848)
+	at org.elasticsearch.index.query.QueryStringQueryParser.parse(QueryStringQueryParser.java:227)
+	... 18 more
+Caused by: org.apache.lucene.queryparser.classic.ParseException: Encountered " "]" "] "" at line 1, column 56.
+Was expecting one of:
+    "TO" ...
+    <RANGE_QUOTED> ...
+    <RANGE_GOOP> ...
+    
+	at org.apache.lucene.queryparser.classic.QueryParser.generateParseException(QueryParser.java:698)
+	at org.apache.lucene.queryparser.classic.QueryParser.jj_consume_token(QueryParser.java:580)
+	at org.apache.lucene.queryparser.classic.QueryParser.Term(QueryParser.java:394)
+	at org.apache.lucene.queryparser.classic.QueryParser.Clause(QueryParser.java:247)
+	at org.apache.lucene.queryparser.classic.QueryParser.Query(QueryParser.java:202)
+	at org.apache.lucene.queryparser.classic.QueryParser.TopLevelQuery(QueryParser.java:160)
+	at org.apache.lucene.queryparser.classic.QueryParserBase.parse(QueryParserBase.java:117)
+	... 20 more
+[2016-06-01 19:23:34,476][INFO ][node                     ] [Vamp] stopping ...
+[2016-06-01 19:23:34,509][INFO ][node                     ] [Vamp] stopped
+[2016-06-01 19:23:34,510][INFO ][node                     ] [Vamp] closing ...
+[2016-06-01 19:23:34,512][INFO ][node                     ] [Vamp] closed
+[2016-06-01 19:23:39,985][INFO ][node                     ] [Cancer] version[2.3.3], pid[6447], build[218bdf1/2016-05-17T15:40:04Z]
+[2016-06-01 19:23:39,986][INFO ][node                     ] [Cancer] initializing ...
+[2016-06-01 19:23:40,274][INFO ][plugins                  ] [Cancer] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2016-06-01 19:23:40,285][INFO ][env                      ] [Cancer] using [1] data paths, mounts [[/ (/dev/sda6)]], net usable_space [50.3gb], net total_space [83.2gb], spins? [possibly], types [ext4]
+[2016-06-01 19:23:40,285][INFO ][env                      ] [Cancer] heap size [989.8mb], compressed ordinary object pointers [true]
+[2016-06-01 19:23:41,397][INFO ][node                     ] [Cancer] initialized
+[2016-06-01 19:23:41,397][INFO ][node                     ] [Cancer] starting ...
+[2016-06-01 19:23:41,458][INFO ][transport                ] [Cancer] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2016-06-01 19:23:41,460][INFO ][discovery                ] [Cancer] elasticsearch/RHRALr01QiGMNlxkJ5ZG-w
+[2016-06-01 19:23:44,482][INFO ][cluster.service          ] [Cancer] new_master {Cancer}{RHRALr01QiGMNlxkJ5ZG-w}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2016-06-01 19:23:44,505][INFO ][http                     ] [Cancer] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2016-06-01 19:23:44,505][INFO ][node                     ] [Cancer] started
+[2016-06-01 19:23:44,755][INFO ][gateway                  ] [Cancer] recovered [1] indices into cluster_state
+[2016-06-01 19:23:45,626][INFO ][cluster.routing.allocation] [Cancer] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[posts][3], [posts][3]] ...]).
+[2016-06-01 20:07:08,957][INFO ][node                     ] [Cancer] stopping ...
+[2016-06-01 20:07:08,986][INFO ][node                     ] [Cancer] stopped
+[2016-06-01 20:07:08,987][INFO ][node                     ] [Cancer] closing ...
+[2016-06-01 20:07:08,991][INFO ][node                     ] [Cancer] closed
+[2016-06-01 20:07:12,901][INFO ][node                     ] [Mandroid] version[2.3.3], pid[7583], build[218bdf1/2016-05-17T15:40:04Z]
+[2016-06-01 20:07:12,901][INFO ][node                     ] [Mandroid] initializing ...
+[2016-06-01 20:07:13,203][INFO ][plugins                  ] [Mandroid] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2016-06-01 20:07:13,215][INFO ][env                      ] [Mandroid] using [1] data paths, mounts [[/ (/dev/sda6)]], net usable_space [50.3gb], net total_space [83.2gb], spins? [possibly], types [ext4]
+[2016-06-01 20:07:13,215][INFO ][env                      ] [Mandroid] heap size [989.8mb], compressed ordinary object pointers [true]
+[2016-06-01 20:07:14,340][INFO ][node                     ] [Mandroid] initialized
+[2016-06-01 20:07:14,341][INFO ][node                     ] [Mandroid] starting ...
+[2016-06-01 20:07:14,392][INFO ][transport                ] [Mandroid] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2016-06-01 20:07:14,395][INFO ][discovery                ] [Mandroid] elasticsearch/2O6aA5JrSvqFRw-FLJ1alQ
+[2016-06-01 20:07:17,416][INFO ][cluster.service          ] [Mandroid] new_master {Mandroid}{2O6aA5JrSvqFRw-FLJ1alQ}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2016-06-01 20:07:17,438][INFO ][http                     ] [Mandroid] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2016-06-01 20:07:17,438][INFO ][node                     ] [Mandroid] started
+[2016-06-01 20:07:17,727][INFO ][gateway                  ] [Mandroid] recovered [1] indices into cluster_state
+[2016-06-01 20:07:19,097][INFO ][cluster.routing.allocation] [Mandroid] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[posts][1]] ...]).
+[2016-06-01 21:20:20,225][INFO ][node                     ] [Mandroid] stopping ...
+[2016-06-01 21:20:20,851][INFO ][node                     ] [Mandroid] stopped
+[2016-06-01 21:20:20,852][INFO ][node                     ] [Mandroid] closing ...
+[2016-06-01 21:20:20,855][INFO ][node                     ] [Mandroid] closed
+[2016-06-01 21:20:24,416][INFO ][node                     ] [Nick Fury] version[2.3.3], pid[9619], build[218bdf1/2016-05-17T15:40:04Z]
+[2016-06-01 21:20:24,417][INFO ][node                     ] [Nick Fury] initializing ...
+[2016-06-01 21:20:24,736][INFO ][plugins                  ] [Nick Fury] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2016-06-01 21:20:24,747][INFO ][env                      ] [Nick Fury] using [1] data paths, mounts [[/ (/dev/sda6)]], net usable_space [50.3gb], net total_space [83.2gb], spins? [possibly], types [ext4]
+[2016-06-01 21:20:24,748][INFO ][env                      ] [Nick Fury] heap size [989.8mb], compressed ordinary object pointers [true]
+[2016-06-01 21:20:26,054][INFO ][node                     ] [Nick Fury] initialized
+[2016-06-01 21:20:26,054][INFO ][node                     ] [Nick Fury] starting ...
+[2016-06-01 21:20:26,102][INFO ][transport                ] [Nick Fury] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2016-06-01 21:20:26,106][INFO ][discovery                ] [Nick Fury] elasticsearch/Pyn0FqAlSbugARaRvkxd_g
+[2016-06-01 21:20:29,132][INFO ][cluster.service          ] [Nick Fury] new_master {Nick Fury}{Pyn0FqAlSbugARaRvkxd_g}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2016-06-01 21:20:29,144][INFO ][http                     ] [Nick Fury] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2016-06-01 21:20:29,144][INFO ][node                     ] [Nick Fury] started
+[2016-06-01 21:20:29,355][INFO ][gateway                  ] [Nick Fury] recovered [1] indices into cluster_state
+[2016-06-01 21:20:30,382][INFO ][cluster.routing.allocation] [Nick Fury] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[posts][4], [posts][4]] ...]).
+[2016-06-01 22:31:55,618][INFO ][node                     ] [Nick Fury] stopping ...
+[2016-06-01 22:31:55,638][INFO ][node                     ] [Nick Fury] stopped
+[2016-06-01 22:31:55,638][INFO ][node                     ] [Nick Fury] closing ...
+[2016-06-01 22:31:55,641][INFO ][node                     ] [Nick Fury] closed
+[2016-06-01 22:31:58,781][INFO ][node                     ] [Cat-Man] version[2.3.3], pid[11726], build[218bdf1/2016-05-17T15:40:04Z]
+[2016-06-01 22:31:58,782][INFO ][node                     ] [Cat-Man] initializing ...
+[2016-06-01 22:31:59,115][INFO ][plugins                  ] [Cat-Man] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2016-06-01 22:31:59,127][INFO ][env                      ] [Cat-Man] using [1] data paths, mounts [[/ (/dev/sda6)]], net usable_space [50.3gb], net total_space [83.2gb], spins? [possibly], types [ext4]
+[2016-06-01 22:31:59,127][INFO ][env                      ] [Cat-Man] heap size [989.8mb], compressed ordinary object pointers [true]
+[2016-06-01 22:32:00,316][INFO ][node                     ] [Cat-Man] initialized
+[2016-06-01 22:32:00,316][INFO ][node                     ] [Cat-Man] starting ...
+[2016-06-01 22:32:00,364][INFO ][transport                ] [Cat-Man] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2016-06-01 22:32:00,367][INFO ][discovery                ] [Cat-Man] elasticsearch/p3LbQxwoQWCUPtVr5qD5FQ
+[2016-06-01 22:32:03,409][INFO ][cluster.service          ] [Cat-Man] new_master {Cat-Man}{p3LbQxwoQWCUPtVr5qD5FQ}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2016-06-01 22:32:03,433][INFO ][http                     ] [Cat-Man] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2016-06-01 22:32:03,433][INFO ][node                     ] [Cat-Man] started
+[2016-06-01 22:32:03,708][INFO ][gateway                  ] [Cat-Man] recovered [1] indices into cluster_state
+[2016-06-01 22:32:04,603][INFO ][cluster.routing.allocation] [Cat-Man] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[posts][2], [posts][2]] ...]).
+[2016-06-01 22:44:21,051][INFO ][cluster.metadata         ] [Cat-Man] [posts] create_mapping [Dog]
+[2016-06-01 22:46:08,710][INFO ][cluster.metadata         ] [Cat-Man] [document] creating index, cause [auto(index api)], templates [], shards [5]/[1], mappings [Dog]
+[2016-06-01 22:46:09,789][INFO ][cluster.routing.allocation] [Cat-Man] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[document][4]] ...]).
+[2016-06-01 22:46:09,884][INFO ][cluster.metadata         ] [Cat-Man] [document] update_mapping [Dog]
+[2016-06-01 22:52:10,297][INFO ][node                     ] [Cat-Man] stopping ...
+[2016-06-01 22:52:10,339][INFO ][node                     ] [Cat-Man] stopped
+[2016-06-01 22:52:10,340][INFO ][node                     ] [Cat-Man] closing ...
+[2016-06-01 22:52:10,345][INFO ][node                     ] [Cat-Man] closed
+[2016-06-01 23:00:24,271][INFO ][node                     ] [Wilbur Day] version[2.3.3], pid[12651], build[218bdf1/2016-05-17T15:40:04Z]
+[2016-06-01 23:00:24,271][INFO ][node                     ] [Wilbur Day] initializing ...
+[2016-06-01 23:00:24,615][INFO ][plugins                  ] [Wilbur Day] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2016-06-01 23:00:24,627][INFO ][env                      ] [Wilbur Day] using [1] data paths, mounts [[/ (/dev/sda6)]], net usable_space [50.3gb], net total_space [83.2gb], spins? [possibly], types [ext4]
+[2016-06-01 23:00:24,627][INFO ][env                      ] [Wilbur Day] heap size [989.8mb], compressed ordinary object pointers [true]
+[2016-06-01 23:00:25,798][INFO ][node                     ] [Wilbur Day] initialized
+[2016-06-01 23:00:25,798][INFO ][node                     ] [Wilbur Day] starting ...
+[2016-06-01 23:00:25,841][INFO ][transport                ] [Wilbur Day] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2016-06-01 23:00:25,845][INFO ][discovery                ] [Wilbur Day] elasticsearch/IrFmP0XOSxKI0KviRV-pXQ
+[2016-06-01 23:00:28,868][INFO ][cluster.service          ] [Wilbur Day] new_master {Wilbur Day}{IrFmP0XOSxKI0KviRV-pXQ}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2016-06-01 23:00:28,900][INFO ][http                     ] [Wilbur Day] publish_address {127.0.0.1:9200}, bound_addresses {[::1]:9200}, {127.0.0.1:9200}
+[2016-06-01 23:00:28,900][INFO ][node                     ] [Wilbur Day] started
+[2016-06-01 23:00:29,420][INFO ][gateway                  ] [Wilbur Day] recovered [2] indices into cluster_state
+[2016-06-01 23:00:31,281][INFO ][cluster.routing.allocation] [Wilbur Day] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[posts][4]] ...]).
+[2016-06-01 23:01:53,003][INFO ][node                     ] [Wilbur Day] stopping ...
+[2016-06-01 23:01:53,035][INFO ][node                     ] [Wilbur Day] stopped
+[2016-06-01 23:01:53,035][INFO ][node                     ] [Wilbur Day] closing ...
+[2016-06-01 23:01:53,038][INFO ][node                     ] [Wilbur Day] closed
