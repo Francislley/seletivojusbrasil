@@ -15,7 +15,7 @@ elasticsearch==2.3.0
 enum34==1.1.2
 gmvault==1.9.1
 html5lib==0.999
-httplib2==0.9.1
+httplib2==0.18.0
 idna==2.0
 IMAPClient==0.13
 ipaddress==1.0.16
