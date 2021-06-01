@@ -55,7 +55,7 @@ tornado==4.2.1
 Twisted==16.0.0
 ubuntuone-client-data==14.4
 unity-lens-photos==1.0
-urllib3==1.15.1
+urllib3==1.26.5
 virtualenv==15.0.2
 yapf==0.8.2
 zope.interface==4.1.3
